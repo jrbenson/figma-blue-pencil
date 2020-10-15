@@ -1,0 +1,25 @@
+{
+  "name": "BluePencil",
+  "version": "1.0.0",
+  "description": "Your Figma Plugin",
+  "main": "dist/code.js",
+  "scripts": {
+    "build:es6": "tsc -p tsconfig.json",
+    "build:iife": "rollup -c",
+    "build:iife:ui": "rollup --config rollup.config.ui.js",
+    "build:inline": "npx html-inline -i src/ui.html -o dist/ui.html",
+    "build": "npm run build:es6 && npm run build:iife && npm run build:iife:ui && npm run build:inline"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.17.1",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "html-inline": "^1.2.0",
+    "rollup": "^2.30.0"
+  },
+  "dependencies": {
+    "figma-plugin-ds": "^0.1.8"
+  }
+}
