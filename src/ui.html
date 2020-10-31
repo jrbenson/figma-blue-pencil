@@ -1,58 +1,251 @@
-<link rel="stylesheet" href="../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
+<link rel="stylesheet" href="../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css" />
 <link rel="stylesheet" href="ui.css" />
 
-
-
 <main>
+  <!-- <h2>Page Numbering</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="revisePageNumbers" id="cb1" type="checkbox" class="checkbox__box" />
+      <label for="cb1" class="checkbox__label">Update page numbers</label>
+    </div>
+    <div class="indent columns">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Start #</div>
+        <input data-opt="pageNumbersStart" type="number" class="input__field" />
+      </div>
+      <div class="checkbox">
+        <input id="cb2" data-opt="pageNumbersReverse" type="checkbox" class="checkbox__box" />
+        <label for="cb2" class="checkbox__label">Reverse</label>
+      </div>
+    </div>
+    <div class="indent">
+      <ul class="disclosure">
+        <li class="disclosure__item">
+          <div class="disclosure__label">Marks</div>
+          <div class="disclosure__content">
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Number</div>
+              <input data-opt="pageNumbersMark" type="input" class="input__field" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> -->
 
-    <h2>Heading</h2>
+  <!-- <h2>Page Titles</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="revisePageTitles" id="cb3" type="checkbox" class="checkbox__box" />
+      <label for="cb3" class="checkbox__label">Update page titles</label>
+    </div>
+    <div class="indent">
+      <ul class="disclosure">
+        <li class="disclosure__item">
+          <div class="disclosure__label">Marks</div>
+          <div class="disclosure__content">
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Title</div>
+              <input data-opt="pageTitlesMark" type="input" class="input__field" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> -->
 
-    <div class="section">
-      <p>Count: <input id="count" value="5" /></p>
+  <!-- <h2>Document Titles</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="revisePageTitles" id="cb4" type="checkbox" class="checkbox__box" />
+      <label for="cb4" class="checkbox__label">Update document titles</label>
     </div>
-    
-    <h2>Heading</h2>
-    
-    <div class="section">
-      <p>Test text.</p>
+    <div class="indent">
+      <ul class="disclosure">
+        <li class="disclosure__item">
+          <div class="disclosure__label">Marks</div>
+          <div class="disclosure__content">
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Title</div>
+              <input data-opt="documentTitlesMark" type="input" class="input__field" />
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    
-    <h2>Heading</h2>
-    
-    <div class="section">
-      <p>Test text.</p>
+  </div> -->
+
+  <!-- <h2>Update Date</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseUpdateDate" id="cb5" type="checkbox" class="checkbox__box" />
+      <label for="cb5" class="checkbox__label">Update document update date</label>
     </div>
-    
-    <h2>Heading</h2>
-    
-    <div class="section">
-      <p>Test text.</p>
+    <div class="indent">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Prefix</div>
+        <input data-opt="updateDatePrefix" type="input" class="input__field" />
+      </div>
     </div>
-    
-    <h2>Heading</h2>
-    
+    <div class="indent">
+      <ul class="disclosure">
+        <li class="disclosure__item">
+          <div class="disclosure__label">Marks</div>
+          <div class="disclosure__content">
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Date</div>
+              <input data-opt="updateDateMark" type="input" class="input__field" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+  <h2>Frames</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseFrames" id="cb6" type="checkbox" class="checkbox__box" />
+      <label for="cb6" class="checkbox__label">Manage frames</label>
+    </div>
+    <div class="section indent columns">
+      <div class="input input--with-label mb-xxsmall" title="Horizontal gap between frames in a row">
+        <div class="label">Gap H</div>
+        <input data-opt="frameHSpacing" type="number" class="input__field" />
+      </div>
+      <div class="input input--with-label mb-xxsmall" title="Vertical gap between rows for frame layout">
+        <div class="label">Gap V</div>
+        <input data-opt="frameVSpacing" type="number" class="input__field" />
+      </div>
+      <div class="input input--with-label mb-xxsmall" title="Overlap required to snap to row">
+        <div class="label">Overlap</div>
+        <input data-opt="frameSnap" type="number" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <!-- <h2>Table of Contents</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseTableOfContents" id="cb6" type="checkbox" class="checkbox__box" />
+      <label for="cb6" class="checkbox__label">Manage frames</label>
+    </div>
+    <div class="indent">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Delim</div>
+        <input data-opt="tocTitleDelimiter" type="input" class="input__field" />
+      </div>
+    </div>
+    <div class="indent">
+      <ul class="disclosure">
+        <li class="disclosure__item">
+          <div class="disclosure__label">Marks</div>
+          <div class="disclosure__content">
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Table</div>
+              <input data-opt="tocMark" type="input" class="input__field" />
+            </div>
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Title</div>
+              <input data-opt="tocTitleMark" type="input" class="input__field" />
+            </div>
+            <div class="input input--with-label mb-xxsmall">
+              <div class="label">Number</div>
+              <input data-opt="tocNumberMark" type="input" class="input__field" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+  <!-- <h2>Controls</h2>
+  <div class="section">
+
+    <div class="label">Label</div>
     <div class="section">
-      <div class="label">Shape</div>
-      <select id="shape" class="select-menu mb-xxsmall">
-        <option value="">Please select a shape...</option>
-        <option value="square">Square</option>
-        <option value="triangle">Triangle</option>
-        <option value="circle">Circle</option>
-      </select>
-    
-      <!-- Count input -->
       <div class="label">Count</div>
       <div class="input input--with-icon mb-xxsmall">
         <div class="icon">#</div>
         <input id="count" type="input" class="input__field" value="5" />
       </div>
     </div>
+    
+    <div class="section-title">Section title</div>
+    <div class="input">
+      <input type="input" class="input__field" placeholder="Placeholder" />
+    </div>
+    
+    <button class="button button--primary">Label</button>
+    <button class="button button--primary-destructive">Label</button>
+    <button class="button button--primary" disabled>Label</button>
+
+    <button class="button button--secondary">Label</button>
+    <button class="button button--secondary-destructive">Label</button>
+    <button class="button button--secondary" disabled>Label</button>
+
+    <button class="button button--tertiary">Label</button>
+    <button class="button button--tertiary-destructive">Label</button>
+    <button class="button button--tertiary" disabled>Label</button>
+    <div class="icon-button">
+      <div class="icon icon--blend"></div>
+    </div>
+    <div class="input input--with-icon">
+      <div class="icon icon--angle"></div>
+      <input type="input" class="input__field" value="Value" />
+    </div>
+    <div class="checkbox">
+      <input id="uniqueId" type="checkbox" class="checkbox__box" />
+      <label for="uniqueId" class="checkbox__label">Label</label>
+    </div>
+    <div class="radio">
+      <input id="radioButton1" type="radio" class="radio__button" value="Value" name="radioGroup" />
+      <label for="radioButton1" class="radio__label">Radio button</label>
+    </div>
+    <div class="switch">
+      <input class="switch__toggle" type="checkbox" id="uniqueId" />
+      <label class="switch__label" for="uniqueIdA">Label</label>
+    </div>
+    <textarea class="textarea" rows="2">Initial value</textarea>
+    <div class="label">Shape Select</div>
+    <select id="shape" class="select-menu mb-xxsmall">
+      <option value="">Please select a shape...</option>
+      <option value="square">Square</option>
+      <option value="triangle">Triangle</option>
+      <option value="circle">Circle</option>
+    </select>
+    <ul class="disclosure">
+      <li class="disclosure__item disclosure--expanded">
+        <div class="disclosure__label disclosure--section">Disclosure heading</div>
+        
+        <div class="disclosure__content">Panel content here</div>
+      </li>
+
+      <li class="disclosure__item disclosure--expanded">
+        
+        <div class="disclosure__label">Disclosure heading</div>
+        <div class="disclosure__content">Panel content here</div>
+      </li>
+
+      <li class="disclosure__item">
+        <div class="disclosure__label">Disclosure heading</div>
+        <div class="disclosure__content">Panel content here</div>
+      </li>
+    </ul>
+    <div class="onboarding-tip">
+      <div class="icon icon--styles"></div>
+      <div class="onboarding-tip__msg">Onboarding tip goes here.</div>
+    </div>
+  </div> -->
+
+  <h2>Danger</h2>
+  <div class="section">
+    <button id="reset" class="button button--tertiary-destructive">Reset All Options</button>
+  </div>
 </main>
 
 <footer>
-    <button id="create" class="button button--primary mr-xxmsall">Create</button> 
-    <button id="cancel" class="button button--secondary mr-xxsmall">Cancel</button>
+  <button id="revise" class="button button--primary mr-xxmsall">Revise</button>
 </footer>
-
 
 <script src="ui.js"></script>

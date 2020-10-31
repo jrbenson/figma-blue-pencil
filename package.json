@@ -1,23 +1,26 @@
 {
-  "name": "BluePencil",
+  "name": "blue-pencil",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "description": "Blue Pencil",
   "main": "dist/code.js",
   "scripts": {
     "build:es6": "tsc -p tsconfig.json",
     "build:iife": "rollup -c",
     "build:iife:ui": "rollup --config rollup.config.ui.js",
     "build:inline": "npx html-inline -i src/ui.html -o dist/ui.html",
-    "build": "npm run build:es6 && npm run build:iife && npm run build:iife:ui && npm run build:inline"
+    "build:min": "npx html-minifier --input-dir ./dist --output-dir ./dist -o ui.html --file-ext html --minify-css --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace",
+    "build": "npm run build:es6 && npm run build:iife && npm run build:iife:ui && npm run build:inline && npm run build:min"
   },
-  "author": "",
+  "author": "Riley.Benson@sas.com",
   "license": "",
   "devDependencies": {
     "@figma/plugin-typings": "^1.17.1",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "html-inline": "^1.2.0",
-    "rollup": "^2.30.0"
+    "html-minifier": "^4.0.0",
+    "rollup": "^2.30.0",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
     "figma-plugin-ds": "^0.1.8"

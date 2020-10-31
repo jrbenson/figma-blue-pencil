@@ -15,10 +15,14 @@ h6 {
   padding: 16px;
   padding-bottom: 8px;
   margin: 0;
+  margin-top: -1;
 }
 h1,
 h2 {
   border-top: 1px solid #e5e5e5;
+}
+.section + h2 {
+  margin-top: 8px;
 }
 p {
   margin: 8px;
@@ -27,7 +31,16 @@ p {
 }
 .section {
   margin: 8px;
+  margin-bottom: 1px;
   margin-top: 0;
+}
+.indent {
+  margin-left: 24px;
+}
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 32px;
 }
 main {
   height: calc(100vh - 48px);
@@ -47,7 +60,34 @@ footer {
 footer .button {
   margin-left: 8px;
   display: inline-block;
+  width: calc(100vw - 32px);
 }
-footer .button--secondary {
-  float: right;
+main .button {
+  margin-left: 8px;
+}
+.input--with-label .input__field {
+  padding-left: 64px;
+}
+.input--with-label .label {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: var(--size-medium);
+    z-index: 1;
+}
+.disclosure {
+  margin-bottom: 8px;
+}
+.disclosure__content {
+  padding-top: 0;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+.input {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.disclosure__item.disclosure--expanded {
+  margin-bottom: -8px;
 }
