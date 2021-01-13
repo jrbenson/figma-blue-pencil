@@ -2,7 +2,7 @@
   "name": "Blue Pencil",
   "id": "898042518253103388",
   "api": "1.0.0",
-  "main": "dist/code.js",
+  "main": "dist/index.js",
   "ui": "dist/ui.html",
   "menu": [
     { "name": "Revise", "command": "revise" },
