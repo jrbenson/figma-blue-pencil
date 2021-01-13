@@ -8,8 +8,18 @@
 				"$tsc"
 			],
 			"group": "build",
-			"label": "npm: build",
-			"detail": "npm run build:es6 && npm run build:iife && npm run build:inline"
+			"label": "Build",
+			"detail": "Run a full one-time build of the plugin."
+		},
+		{
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build",
+			"label": "Watch",
+			"detail": "Build the plugin and re-build if any Typescript source changes."
 		}
 	]
 }

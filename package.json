@@ -13,7 +13,7 @@
   "watch": {
     "build": {
       "patterns": ["src/**/*"],
-      "extensions": "ts"
+      "extensions": "ts,css,html"
     }
   },
   "author": "Riley.Benson@sas.com",
