@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css" />
-<link rel="stylesheet" href="ui.css" />
+<link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css" />
+<link rel="stylesheet" href="fixes.css" />
+<link rel="stylesheet" href="index.css" />
 
 <main>
   <!-- <h2>Page Numbering</h2>
@@ -108,7 +109,7 @@
       <input data-opt="reviseFrames" id="cb6" type="checkbox" class="checkbox__box" />
       <label for="cb6" class="checkbox__label">Manage frames</label>
     </div>
-    <div class="section indent columns">
+    <div class="section indent columns" data-dep="cb6">
       <div class="input input--with-label mb-xxsmall" title="Horizontal gap between frames in a row">
         <div class="label">Gap H</div>
         <input data-opt="frameHSpacing" type="number" class="input__field" />
@@ -248,4 +249,4 @@
   <button id="revise" class="button button--primary mr-xxmsall">Revise</button>
 </footer>
 
-<script src="ui-index.js"></script>
+<script src="index.js"></script>

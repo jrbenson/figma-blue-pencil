@@ -91,3 +91,6 @@ main .button {
 .disclosure__item.disclosure--expanded {
   margin-bottom: -8px;
 }
+.button--tertiary, .button--tertiary-destructive {
+  background: none;
+}

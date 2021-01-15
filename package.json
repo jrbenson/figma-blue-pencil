@@ -5,14 +5,16 @@
   "main": "dist/index.js",
   "scripts": {
     "build:iife": "rollup -c",
-    "build:inline": "npx html-inline -i src/ui.html -o dist/ui.html",
-    "build:min": "npx html-minifier --input-dir ./dist --output-dir ./dist -o ui.html --file-ext html --minify-css --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace",
+    "build:inline": "npx html-inline -i src/ui/index.html -o dist/index.html",
+    "build:min": "npx html-minifier --input-dir ./dist --output-dir ./dist -o index.html --file-ext html --minify-css --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace",
     "build": "npm run build:iife && npm run build:inline && npm run build:min",
     "watch": "npm-watch"
   },
   "watch": {
     "build": {
-      "patterns": ["src/**/*"],
+      "patterns": [
+        "src/**/*"
+      ],
       "extensions": "ts,css,html"
     }
   },
@@ -20,12 +22,12 @@
   "license": "",
   "devDependencies": {
     "@figma/plugin-typings": "^1.19.0",
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "html-inline": "^1.2.0",
     "html-minifier": "^4.0.0",
     "npm-watch": "^0.7.0",
-    "rollup": "^2.35.1",
+    "rollup": "^2.36.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",

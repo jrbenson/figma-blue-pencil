@@ -3,7 +3,7 @@
   "id": "898042518253103388",
   "api": "1.0.0",
   "main": "dist/index.js",
-  "ui": "dist/ui.html",
+  "ui": "dist/index.html",
   "menu": [
     { "name": "Revise", "command": "revise" },
     { "name": "Blue Pencil...", "command": "dialog" }
