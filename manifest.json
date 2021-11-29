@@ -4,6 +4,7 @@
   "api": "1.0.0",
   "main": "dist/index.js",
   "ui": "dist/index.html",
+  "editorType": ["figma"],
   "menu": [
     { "name": "Revise", "command": "revise" },
     { "name": "Blue Pencil...", "command": "dialog" }

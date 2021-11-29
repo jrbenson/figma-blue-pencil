@@ -21,6 +21,15 @@ h1,
 h2 {
   border-top: 1px solid #e5e5e5;
 }
+.indent h1,
+.indent h2,
+.indent h3,
+.indent h4,
+.indent h5,
+.indent h6 {
+  padding: 8px;
+  padding-bottom: 4px;
+}
 .section + h2 {
   margin-top: 8px;
 }
@@ -56,23 +65,19 @@ footer {
   padding: 8px;
   background-color: #fff;
   border-top: 1px solid #e5e5e5;
-}
-footer .button {
-  margin-left: 8px;
-  display: inline-block;
-  width: calc(100vw - 32px);
+  z-index: 999999;
 }
 main .button {
   margin-left: 8px;
 }
 .input--with-label .input__field {
-  padding-left: 64px;
+  padding-left: 55px;
 }
 .input--with-label .label {
   position: absolute;
     top: 0;
     left: 0;
-    width: 60px;
+    width: 50px;
     height: var(--size-medium);
     z-index: 1;
 }
@@ -93,4 +98,7 @@ main .button {
 }
 .button--tertiary, .button--tertiary-destructive {
   background: none;
+}
+.button--primary:disabled {
+  background-color: var(--blue3);
 }

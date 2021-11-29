@@ -1,56 +1,64 @@
 export interface Options {
-  revisePageNumbers: boolean,
-  pageNumbersStart: number,
-  pageNumbersReverse: boolean,
-  pageNumbersMark: string,
-  revisePageTitles: boolean,
-  pageTitlesMark: string,
-  reviseDocumentTitles: boolean,
-  documentTitlesMark: string,
-  reviseUpdateDate: boolean,
-  updateDateMark: string,
-  updateDatePrefix: string,
-  reviseFrames: boolean,
-  frameHSpacing: number,
-  frameVSpacing: number,
-  frameSnap: number,
-  reviseTableOfContents: boolean,
-  tocMark: string,
-  tocTitleMark: string,
-  tocNumberMark: string,
-  tocTitleDelimiter: string,
-  searchDepth: number,
-  ignoreSymbolsPage: boolean,
-  pageIgnorePrefix: string,
+  reviseFrameNumbers: boolean
+  frameNumbersStart: number
+  frameNumbersReverse: boolean
+  frameNumbersMark: string
+  reviseFrameNames: boolean
+  frameNamesMark: string
+  revisePageNames: boolean
+  pageNamesMark: string
+  reviseFileNames: boolean
+  fileNamesMark: string
+  reviseUpdateDate: boolean
+  updateDateMark: string
+  updateDatePrefix: string
+  reviseFrames: boolean
+  frameHSpacing: number
+  frameVSpacing: number
+  frameSnap: number
+  reviseTableOfContents: boolean
+  tocMark: string
+  tocTitleMark: string
+  tocNumberMark: string
+  tocTitleDelimiter: string
+  searchDepth: number
+  ignoreSymbolsPage: boolean
+  pageIgnorePrefix: string
   frameIgnorePrefix: string
+  activePageOnly: boolean
+  collapsed: boolean
 }
 
 const OPTS_KEY = 'blue-pencil-settings'
-const OPTS_DEF: Options = {
-  revisePageNumbers: true,
-  pageNumbersStart: 1,
-  pageNumbersReverse: true,
-  pageNumbersMark: "{page}",
-  revisePageTitles: true,
-  pageTitlesMark: "{pagetitle}",
-  reviseDocumentTitles: true,
-  documentTitlesMark: "{doctitle}",
+const OPTS_DEFAULT: Options = {
+  reviseFrameNumbers: true,
+  frameNumbersStart: 1,
+  frameNumbersReverse: false,
+  frameNumbersMark: '{framenumber}',
+  reviseFrameNames: true,
+  frameNamesMark: '{framename}',
+  revisePageNames: true,
+  pageNamesMark: '{pagename}',
+  reviseFileNames: true,
+  fileNamesMark: '{filename}',
   reviseUpdateDate: true,
-  updateDateMark: "{updatedate}",
-  updateDatePrefix: "Updated ",
+  updateDateMark: '{updatedate}',
+  updateDatePrefix: 'Updated ',
   reviseFrames: true,
   frameHSpacing: 50,
   frameVSpacing: 100,
   frameSnap: 0,
   reviseTableOfContents: true,
-  tocMark: "{toc}",
-  tocTitleMark: "{toc-pagetitle}",
-  tocNumberMark: "{toc-pagenumber}",
-  tocTitleDelimiter: "-",
+  tocMark: '{toc}',
+  tocTitleMark: '{toc-framename}',
+  tocNumberMark: '{toc-framenumber}',
+  tocTitleDelimiter: '-',
   searchDepth: 1,
   ignoreSymbolsPage: true,
   pageIgnorePrefix: '_',
-  frameIgnorePrefix: '_'
+  frameIgnorePrefix: '_',
+  activePageOnly: false,
+  collapsed: false,
 }
 
 export async function getOpts(): Promise<Options> {
@@ -59,11 +67,11 @@ export async function getOpts(): Promise<Options> {
     const opts = JSON.parse(optsJSON)
     return opts
   } catch (error) {
-    return OPTS_DEF
+    return OPTS_DEFAULT
   }
 }
 
-export async function setOpts(opts: any) : Promise<Options> {
+export async function setOpts(opts: any): Promise<Options> {
   try {
     const optsCurrent = await getOpts()
     const optsCombined = { ...optsCurrent, ...opts }
@@ -76,7 +84,7 @@ export async function setOpts(opts: any) : Promise<Options> {
 }
 
 export function resetOpts() {
-  setOpts( OPTS_DEF ).then(function (opts) {
+  setOpts(OPTS_DEFAULT).then(function (opts) {
     figma.ui.postMessage({ type: 'options', opts: opts })
   })
 }

@@ -1,21 +1,6 @@
-import { getOpts, Options } from './options'
+import { Options } from '../options'
 
-export default function run(close: Boolean = false) {
-  getOpts()
-    .then(revise)
-    .then(function () {
-      if (close) {
-        figma.closePlugin()
-      }
-    })
-    .catch((reason) => console.log(reason))
-}
-
-function revise(opts: Options) {
-  if (opts.reviseFrames) {
-    reviseFrames(opts)
-  }
-}
+const FRAME_TYPES = ['FRAME', 'COMPONENT', 'COMPONENT_SET']
 
 interface FrameRow {
   indices: Array<number>
@@ -23,10 +8,10 @@ interface FrameRow {
   y_max: number
   height: number
 }
-function reviseFrames(opts: Options) {
-  console.log( opts )
-  for (let page of figma.root.children) {
-    const frames = page.findChildren((n) => n.type === 'FRAME')
+
+export default async function reviseFramesAsync(opts: Options, pages: PageNode[]) {
+  for (let page of pages) {
+    const frames = page.findChildren((n) => FRAME_TYPES.includes(n.type))
 
     let origin = { x: Number.MAX_VALUE, y: Number.MAX_VALUE }
     let rows: Array<FrameRow> = []

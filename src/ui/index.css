@@ -1,0 +1,24 @@
+footer #revise {
+  margin-left: 8px;
+  display: inline-block;
+  width: calc(100vw - 64px);
+}
+footer #collapse {
+  margin-left: 4px;
+  display: inline-block;
+  position: absolute;
+}
+
+.ld-over:before {
+  background-color: rgb(256, 256, 256, 0.85);
+  z-index: 1000;
+  position: fixed;
+  pointer-events: none;
+}
+
+.ld-over>.ld {
+  z-index: 1001;
+  position: fixed;
+  margin-top: -2rem;
+  pointer-events: none;
+}

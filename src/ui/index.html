@@ -1,113 +1,31 @@
 <link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css" />
+<link rel="stylesheet" href="loading.min.css" />
+<link rel="stylesheet" href="ldbtn.min.css" />
 <link rel="stylesheet" href="fixes.css" />
 <link rel="stylesheet" href="index.css" />
 
-<main>
-  <!-- <h2>Page Numbering</h2>
+<main class="ld-over">
+
+  <div class="ld ld-swim" style="animation-duration:3.5s;">
+    <img
+      src="blue-pencil-spinner.png"
+      style="font-size:48px;"
+    />
+  </div>
+
+  <h2>Revision Scope</h2>
   <div class="section">
     <div class="checkbox">
-      <input data-opt="revisePageNumbers" id="cb1" type="checkbox" class="checkbox__box" />
-      <label for="cb1" class="checkbox__label">Update page numbers</label>
+      <input data-opt="activePageOnly" id="cb7" type="checkbox" class="checkbox__box" />
+      <label for="cb7" class="checkbox__label">Revise active page only</label>
     </div>
-    <div class="indent columns">
-      <div class="input input--with-label mb-xxsmall">
-        <div class="label">Start #</div>
-        <input data-opt="pageNumbersStart" type="number" class="input__field" />
-      </div>
-      <div class="checkbox">
-        <input id="cb2" data-opt="pageNumbersReverse" type="checkbox" class="checkbox__box" />
-        <label for="cb2" class="checkbox__label">Reverse</label>
-      </div>
-    </div>
-    <div class="indent">
-      <ul class="disclosure">
-        <li class="disclosure__item">
-          <div class="disclosure__label">Marks</div>
-          <div class="disclosure__content">
-            <div class="input input--with-label mb-xxsmall">
-              <div class="label">Number</div>
-              <input data-opt="pageNumbersMark" type="input" class="input__field" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
+  </div>
 
-  <!-- <h2>Page Titles</h2>
-  <div class="section">
-    <div class="checkbox">
-      <input data-opt="revisePageTitles" id="cb3" type="checkbox" class="checkbox__box" />
-      <label for="cb3" class="checkbox__label">Update page titles</label>
-    </div>
-    <div class="indent">
-      <ul class="disclosure">
-        <li class="disclosure__item">
-          <div class="disclosure__label">Marks</div>
-          <div class="disclosure__content">
-            <div class="input input--with-label mb-xxsmall">
-              <div class="label">Title</div>
-              <input data-opt="pageTitlesMark" type="input" class="input__field" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
-  <!-- <h2>Document Titles</h2>
-  <div class="section">
-    <div class="checkbox">
-      <input data-opt="revisePageTitles" id="cb4" type="checkbox" class="checkbox__box" />
-      <label for="cb4" class="checkbox__label">Update document titles</label>
-    </div>
-    <div class="indent">
-      <ul class="disclosure">
-        <li class="disclosure__item">
-          <div class="disclosure__label">Marks</div>
-          <div class="disclosure__content">
-            <div class="input input--with-label mb-xxsmall">
-              <div class="label">Title</div>
-              <input data-opt="documentTitlesMark" type="input" class="input__field" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
-  <!-- <h2>Update Date</h2>
-  <div class="section">
-    <div class="checkbox">
-      <input data-opt="reviseUpdateDate" id="cb5" type="checkbox" class="checkbox__box" />
-      <label for="cb5" class="checkbox__label">Update document update date</label>
-    </div>
-    <div class="indent">
-      <div class="input input--with-label mb-xxsmall">
-        <div class="label">Prefix</div>
-        <input data-opt="updateDatePrefix" type="input" class="input__field" />
-      </div>
-    </div>
-    <div class="indent">
-      <ul class="disclosure">
-        <li class="disclosure__item">
-          <div class="disclosure__label">Marks</div>
-          <div class="disclosure__content">
-            <div class="input input--with-label mb-xxsmall">
-              <div class="label">Date</div>
-              <input data-opt="updateDateMark" type="input" class="input__field" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
-  <h2>Frames</h2>
+  <h2>Frame Arrangement</h2>
   <div class="section">
     <div class="checkbox">
       <input data-opt="reviseFrames" id="cb6" type="checkbox" class="checkbox__box" />
-      <label for="cb6" class="checkbox__label">Manage frames</label>
+      <label for="cb6" class="checkbox__label">Arrange frames</label>
     </div>
     <div class="section indent columns" data-dep="cb6">
       <div class="input input--with-label mb-xxsmall" title="Horizontal gap between frames in a row">
@@ -121,6 +39,97 @@
       <div class="input input--with-label mb-xxsmall" title="Overlap required to snap to row">
         <div class="label">Overlap</div>
         <input data-opt="frameSnap" type="number" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <h2>Frame Numbering</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseFrameNumbers" id="cb1" type="checkbox" class="checkbox__box" />
+      <label for="cb1" class="checkbox__label">Update frame numbers</label>
+    </div>
+    <div class="indent columns" data-dep="cb1">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Start #</div>
+        <input data-opt="frameNumbersStart" type="number" class="input__field" />
+      </div>
+      <div class="checkbox">
+        <input id="cb2" data-opt="frameNumbersReverse" type="checkbox" class="checkbox__box" />
+        <label for="cb2" class="checkbox__label">Reverse</label>
+      </div>
+    </div>
+    <div class="indent" data-dep="cb1">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Number</div>
+        <input data-opt="frameNumbersMark" type="input" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <h2>Frame Titling</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseFrameNames" id="cb3" type="checkbox" class="checkbox__box" />
+      <label for="cb3" class="checkbox__label">Update frame names</label>
+    </div>
+    <div class="indent" data-dep="cb3">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Title</div>
+        <input data-opt="frameNamesMark" type="input" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <h2>Page Titling</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="revisePageNames" id="cb4" type="checkbox" class="checkbox__box" />
+      <label for="cb4" class="checkbox__label">Update page names</label>
+    </div>
+    <div class="indent" data-dep="cb4">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Title</div>
+        <input data-opt="pageNamesMark" type="input" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <h2>File Titling</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseFileNames" id="cb4a" type="checkbox" class="checkbox__box" />
+      <label for="cb4a" class="checkbox__label">Update file names</label>
+    </div>
+    <div class="indent" data-dep="cb4a">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Title</div>
+        <input data-opt="fileNamesMark" type="input" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <h2>Update Date</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseUpdateDate" id="cb5" type="checkbox" class="checkbox__box" />
+      <label for="cb5" class="checkbox__label">Update document update date</label>
+    </div>
+    <div class="indent" data-dep="cb5">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Prefix</div>
+        <input data-opt="updateDatePrefix" type="input" class="input__field" />
+      </div>
+    </div>
+    <div class="indent" data-dep="cb5">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Date</div>
+        <input data-opt="updateDateMark" type="input" class="input__field" />
       </div>
     </div>
   </div>
@@ -246,7 +255,10 @@
 </main>
 
 <footer>
-  <button id="revise" class="button button--primary mr-xxmsall">Revise</button>
+  <button id="revise" class="button button--primary mr-xxmsall">Revise</div></button>
+  <div id="collapse" class="icon-button">
+    <div id="collapse_icon" class="icon icon--caret-up"></div>
+  </div>
 </footer>
 
 <script src="index.js"></script>
