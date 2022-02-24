@@ -134,19 +134,53 @@
     </div>
   </div>
 
-  <!-- <h2>Table of Contents</h2>
+  <h2>Table of Contents</h2>
   <div class="section">
     <div class="checkbox">
-      <input data-opt="reviseTableOfContents" id="cb6" type="checkbox" class="checkbox__box" />
-      <label for="cb6" class="checkbox__label">Manage frames</label>
+      <input data-opt="reviseTableOfContents" id="cb8" type="checkbox" class="checkbox__box" />
+      <label for="cb8" class="checkbox__label">Update table of contents</label>
     </div>
-    <div class="indent">
+    <div class="indent" data-dep="cb8">
+      <div class="checkbox">
+        <input data-opt="tocIncludeSelf" id="cb9" type="checkbox" class="checkbox__box" />
+        <label for="cb9" class="checkbox__label">List containing frame</label>
+      </div>
       <div class="input input--with-label mb-xxsmall">
         <div class="label">Delim</div>
         <input data-opt="tocTitleDelimiter" type="input" class="input__field" />
       </div>
     </div>
-    <div class="indent">
+    <div class="indent" data-dep="cb8">
+      <h3>Markup</h3>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Table</div>
+        <input data-opt="tocMark" type="input" class="input__field" />
+      </div>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Title</div>
+        <input data-opt="tocTitleMark" type="input" class="input__field" />
+      </div>
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Number</div>
+        <input data-opt="tocNumberMark" type="input" class="input__field" />
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+  <h2>Table of Contents</h2>
+  <div class="section">
+    <div class="checkbox">
+      <input data-opt="reviseTableOfContents" id="cb8" type="checkbox" class="checkbox__box" />
+      <label for="cb8" class="checkbox__label">Update table of contents</label>
+    </div>
+    <div class="indent" data-dep="cb8">
+      <div class="input input--with-label mb-xxsmall">
+        <div class="label">Delim</div>
+        <input data-opt="tocTitleDelimiter" type="input" class="input__field" />
+      </div>
+    </div>
+    <div class="indent" data-dep="cb8">
       <ul class="disclosure">
         <li class="disclosure__item">
           <div class="disclosure__label">Marks</div>

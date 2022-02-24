@@ -21,6 +21,7 @@ export interface Options {
   tocTitleMark: string
   tocNumberMark: string
   tocTitleDelimiter: string
+  tocIncludeSelf: boolean
   searchDepth: number
   ignoreSymbolsPage: boolean
   pageIgnorePrefix: string
@@ -53,6 +54,7 @@ const OPTS_DEFAULT: Options = {
   tocTitleMark: '{toc-framename}',
   tocNumberMark: '{toc-framenumber}',
   tocTitleDelimiter: '-',
+  tocIncludeSelf: false,
   searchDepth: 1,
   ignoreSymbolsPage: true,
   pageIgnorePrefix: '_',

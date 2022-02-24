@@ -1,6 +1,5 @@
 import { Options } from '../options'
-
-const SUBSTITUTION_TYPES = ['FRAME']
+import { DOCUMENT_TYPES } from './utils'
 
 export default async function reviseSubstitutionsAsync(opts: Options, pages: PageNode[]) {
   // Store array of all async promises to await at end.
@@ -12,7 +11,7 @@ export default async function reviseSubstitutionsAsync(opts: Options, pages: Pag
   // Iterate through the provided page nodes.
   for (let page of pages) {
     let curFrameNumber = 0
-    const frames = page.findChildren((n) => SUBSTITUTION_TYPES.includes(n.type))
+    const frames = page.findChildren((n) => DOCUMENT_TYPES.includes(n.type))
 
     // Iterate through the frames in each page.
     for (let frame of frames) {

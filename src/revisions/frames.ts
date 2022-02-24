@@ -1,6 +1,5 @@
 import { Options } from '../options'
-
-const FRAME_TYPES = ['FRAME', 'COMPONENT', 'COMPONENT_SET']
+import { ARRANGEMENT_TYPES } from './utils'
 
 interface FrameRow {
   indices: Array<number>
@@ -11,7 +10,7 @@ interface FrameRow {
 
 export default async function reviseFramesAsync(opts: Options, pages: PageNode[]) {
   for (let page of pages) {
-    const frames = page.findChildren((n) => FRAME_TYPES.includes(n.type))
+    const frames = page.findChildren((n) => ARRANGEMENT_TYPES.includes(n.type))
 
     let origin = { x: Number.MAX_VALUE, y: Number.MAX_VALUE }
     let rows: Array<FrameRow> = []

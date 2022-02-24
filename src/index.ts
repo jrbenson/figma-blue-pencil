@@ -4,7 +4,7 @@ import { setOpts, getOpts, resetOpts, Options } from './options'
 if (figma.command === 'revise') {
   run(true)
 } else {
-  figma.showUI(__html__, { width: 240, height: 400 })
+  figma.showUI(__html__, { width: 240, height: 640 })
   getOpts().then(function (opts) {
     figma.ui.postMessage({ type: 'options', opts: opts })
     setCollapsed(opts.collapsed)
@@ -44,7 +44,7 @@ function setCollapsed(collapsed: boolean) {
   if (collapsed) {
     figma.ui.resize(240, 120)
   } else {
-    figma.ui.resize(240, 400)
+    figma.ui.resize(240, 640)
   }
   figma.ui.postMessage({ type: 'collapse', state: collapsed })
 }
