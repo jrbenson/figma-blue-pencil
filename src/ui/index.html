@@ -5,25 +5,39 @@
 <link rel="stylesheet" href="index.css" />
 
 <main class="ld-over">
-
-  <div class="ld ld-swim" style="animation-duration:3.5s;">
-    <img
-      src="blue-pencil-spinner.png"
-      style="font-size:48px;"
-    />
+  <div class="ld ld-swim" style="animation-duration: 3.5s">
+    <img src="blue-pencil-spinner.png" style="font-size: 48px" />
   </div>
 
   <h2>Revision Scope</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle whether to apply the revision to the active page or to all pages in the file">
       <input data-opt="activePageOnly" id="cb7" type="checkbox" class="checkbox__box" />
       <label for="cb7" class="checkbox__label">Revise active page only</label>
     </div>
   </div>
 
+  <h2>Omission Prefixes</h2>
+  <div class="section columns">
+    <div
+      class="input input--with-label mb-xxsmall"
+      title="Prefix to mark frames and pages that should be omitted from numbering and table of contents."
+    >
+      <div class="label">index</div>
+      <input data-opt="omitIndexPrefix" type="input" class="input__field" />
+    </div>
+    <div
+      class="input input--with-label mb-xxsmall"
+      title="Prefix to mark frames and pages that should be completely ignored."
+    >
+      <div class="label">full</div>
+      <input data-opt="omitFullPrefix" type="input" class="input__field" />
+    </div>
+  </div>
+
   <h2>Frame Arrangement</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the arrangement and reordering of frames">
       <input data-opt="reviseFrames" id="cb6" type="checkbox" class="checkbox__box" />
       <label for="cb6" class="checkbox__label">Arrange frames</label>
     </div>
@@ -45,23 +59,29 @@
 
   <h2>Frame Numbering</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of page numbers for tagged text layers">
       <input data-opt="reviseFrameNumbers" id="cb1" type="checkbox" class="checkbox__box" />
       <label for="cb1" class="checkbox__label">Update frame numbers</label>
     </div>
     <div class="indent columns" data-dep="cb1">
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="The starting number assigned to the first frame on the page"
+      >
         <div class="label">Start #</div>
         <input data-opt="frameNumbersStart" type="number" class="input__field" />
       </div>
-      <div class="checkbox">
+      <div class="checkbox" title="Choose whether numbering starts with the first frame or the last frame on the page">
         <input id="cb2" data-opt="frameNumbersReverse" type="checkbox" class="checkbox__box" />
         <label for="cb2" class="checkbox__label">Reverse</label>
       </div>
     </div>
     <div class="indent" data-dep="cb1">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify the frame number text layers"
+      >
         <div class="label">Number</div>
         <input data-opt="frameNumbersMark" type="input" class="input__field" />
       </div>
@@ -70,13 +90,16 @@
 
   <h2>Frame Titling</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of frame names for tagged text layers">
       <input data-opt="reviseFrameNames" id="cb3" type="checkbox" class="checkbox__box" />
       <label for="cb3" class="checkbox__label">Update frame names</label>
     </div>
     <div class="indent" data-dep="cb3">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify the frame name text layers"
+      >
         <div class="label">Title</div>
         <input data-opt="frameNamesMark" type="input" class="input__field" />
       </div>
@@ -85,13 +108,16 @@
 
   <h2>Page Titling</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of page names for tagged text layers">
       <input data-opt="revisePageNames" id="cb4" type="checkbox" class="checkbox__box" />
       <label for="cb4" class="checkbox__label">Update page names</label>
     </div>
     <div class="indent" data-dep="cb4">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify the page name text layers"
+      >
         <div class="label">Title</div>
         <input data-opt="pageNamesMark" type="input" class="input__field" />
       </div>
@@ -100,13 +126,16 @@
 
   <h2>File Titling</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of file names for tagged text layers">
       <input data-opt="reviseFileNames" id="cb4a" type="checkbox" class="checkbox__box" />
       <label for="cb4a" class="checkbox__label">Update file names</label>
     </div>
     <div class="indent" data-dep="cb4a">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify the file name text layers"
+      >
         <div class="label">Title</div>
         <input data-opt="fileNamesMark" type="input" class="input__field" />
       </div>
@@ -115,19 +144,22 @@
 
   <h2>Update Date</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of current date for tagged text layers">
       <input data-opt="reviseUpdateDate" id="cb5" type="checkbox" class="checkbox__box" />
       <label for="cb5" class="checkbox__label">Update document update date</label>
     </div>
     <div class="indent" data-dep="cb5">
-      <div class="input input--with-label mb-xxsmall">
+      <div class="input input--with-label mb-xxsmall" title="Change the prefix injected before the date">
         <div class="label">Prefix</div>
         <input data-opt="updateDatePrefix" type="input" class="input__field" />
       </div>
     </div>
     <div class="indent" data-dep="cb5">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify the update date text layers"
+      >
         <div class="label">Date</div>
         <input data-opt="updateDateMark" type="input" class="input__field" />
       </div>
@@ -136,31 +168,53 @@
 
   <h2>Table of Contents</h2>
   <div class="section">
-    <div class="checkbox">
+    <div class="checkbox" title="Toggle the updating of table of contents lists for tagged layers">
       <input data-opt="reviseTableOfContents" id="cb8" type="checkbox" class="checkbox__box" />
       <label for="cb8" class="checkbox__label">Update table of contents</label>
     </div>
     <div class="indent" data-dep="cb8">
-      <div class="checkbox">
+      <div
+        class="checkbox"
+        title="Toggle whether to include the frame that contains the table of contents in the list of frames"
+      >
         <input data-opt="tocIncludeSelf" id="cb9" type="checkbox" class="checkbox__box" />
         <label for="cb9" class="checkbox__label">List containing frame</label>
       </div>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="checkbox"
+        title="Toggle whether to include any frame ordered before the frame containing the table of contents in the list of frames"
+      >
+        <input data-opt="tocIncludePrevious" id="cb10" type="checkbox" class="checkbox__box" />
+        <label for="cb10" class="checkbox__label">List previous frames</label>
+      </div>
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the delimter used to separate the main name of a frame from its subname"
+      >
         <div class="label">Delim</div>
         <input data-opt="tocTitleDelimiter" type="input" class="input__field" />
       </div>
     </div>
     <div class="indent" data-dep="cb8">
       <h3>Markup</h3>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify a table of contents main frame"
+      >
         <div class="label">Table</div>
         <input data-opt="tocMark" type="input" class="input__field" />
       </div>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify a page name text layer within a table of contents frame"
+      >
         <div class="label">Title</div>
         <input data-opt="tocTitleMark" type="input" class="input__field" />
       </div>
-      <div class="input input--with-label mb-xxsmall">
+      <div
+        class="input input--with-label mb-xxsmall"
+        title="Change the markup tag used to identify a page number text layer within a table of contents frame"
+      >
         <div class="label">Number</div>
         <input data-opt="tocNumberMark" type="input" class="input__field" />
       </div>
@@ -282,14 +336,30 @@
     </div>
   </div> -->
 
+  <h2>Help</h2>
+  <div class="section">
+    <p>Hover over options for inline help</p>
+    <p>
+      <a href="https://www.figma.com/community/file/1083763883704476424/Blue-Pencil---Help" target="_blank"
+        >Learn more</a
+      >
+    </p>
+  </div>
+
   <h2>Danger</h2>
   <div class="section">
-    <button id="reset" class="button button--tertiary-destructive">Reset All Options</button>
+    <button
+      id="reset"
+      class="button button--tertiary-destructive"
+      title="Fully clear all options and return to the current plugin defaults"
+    >
+      Reset All Options
+    </button>
   </div>
 </main>
 
 <footer>
-  <button id="revise" class="button button--primary mr-xxmsall">Revise</div></button>
+  <button id="revise" class="button button--primary mr-xxmsall">Revise</button>
   <div id="collapse" class="icon-button">
     <div id="collapse_icon" class="icon icon--caret-up"></div>
   </div>

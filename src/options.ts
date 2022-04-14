@@ -22,10 +22,10 @@ export interface Options {
   tocNumberMark: string
   tocTitleDelimiter: string
   tocIncludeSelf: boolean
+  tocIncludePrevious: boolean
   searchDepth: number
-  ignoreSymbolsPage: boolean
-  pageIgnorePrefix: string
-  frameIgnorePrefix: string
+  omitIndexPrefix: string
+  omitFullPrefix: string
   activePageOnly: boolean
   collapsed: boolean
 }
@@ -55,10 +55,10 @@ const OPTS_DEFAULT: Options = {
   tocNumberMark: '{toc-framenumber}',
   tocTitleDelimiter: '-',
   tocIncludeSelf: false,
+  tocIncludePrevious: true,
   searchDepth: 1,
-  ignoreSymbolsPage: true,
-  pageIgnorePrefix: '_',
-  frameIgnorePrefix: '_',
+  omitIndexPrefix: '_',
+  omitFullPrefix: '~',
   activePageOnly: false,
   collapsed: false,
 }

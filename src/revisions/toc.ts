@@ -10,7 +10,7 @@ function getContents(opts: Options, page: PageNode) {
     const f_prev = main_frames[i - 1]
     const f_basename = f.name.split(opts.tocTitleDelimiter)[0].trim()
     const f_prev_basename = f_prev.name.split(opts.tocTitleDelimiter)[0].trim()
-    if (f_basename === f_prev_basename) {
+    if (f.hidden || f_basename === f_prev_basename) {
       main_frames.splice(i, 1)
       hidden_frames.push(f)
     } else i += 1
@@ -33,9 +33,21 @@ export default async function reviseTableOfContentsAsync(opts: Options, pages: P
 
       // Customize contents for this frame.
       const contents: {
-        main: { name: string; number: Number; id: string|null }[]
-        hidden: { name: string; number: Number; id: string|null }[]
+        main: { name: string; number: Number; id: string | null }[]
+        hidden: { name: string; number: Number; id: string | null }[]
       } = JSON.parse(JSON.stringify(contents_full))
+      if (!opts.tocIncludePrevious) {
+        let i = 0
+        while (i < contents.main.length) {
+          const e = contents.main[i]
+          if (e.id === root_frame.id) {
+            break
+          } else {
+            contents.main.splice(i, 1)
+            contents.hidden.push(e)
+          }
+        }
+      }
       if (!opts.tocIncludeSelf) {
         let i = 0
         while (i < contents.main.length) {
@@ -43,14 +55,16 @@ export default async function reviseTableOfContentsAsync(opts: Options, pages: P
           if (e.id === root_frame.id) {
             contents.main.splice(i, 1)
             contents.hidden.push(e)
-          } else i += 1
+          } else {
+            i += 1
+          }
         }
       }
       if (contents.main.length <= 0) {
-        contents.main.push({name:'???',number:0,id:null})
+        contents.main.push({ name: '???', number: 0, id: null })
       }
 
-      console.log(root_frame.name, contents, contents_full)
+      //console.log(root_frame.name, contents, contents_full)
 
       const orig_entry = frame.findChild((n) => n.type === 'FRAME') as FrameNode
       if (orig_entry) {

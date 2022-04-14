@@ -75,11 +75,11 @@ main .button {
 }
 .input--with-label .label {
   position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: var(--size-medium);
-    z-index: 1;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: var(--size-medium);
+  z-index: 1;
 }
 .disclosure {
   margin-bottom: 8px;
@@ -96,9 +96,17 @@ main .button {
 .disclosure__item.disclosure--expanded {
   margin-bottom: -8px;
 }
-.button--tertiary, .button--tertiary-destructive {
+.button--tertiary,
+.button--tertiary-destructive {
   background: none;
 }
 .button--primary:disabled {
   background-color: var(--blue3);
+}
+a {
+  color: #18a0fb;
+  text-decoration: none;
+}
+a::after {
+  content: ' →';
 }

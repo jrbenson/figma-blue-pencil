@@ -1,5 +1,6 @@
 import { Options } from '../options'
 import { DOCUMENT_TYPES } from './utils'
+import { getDocumentStructure, getRootNode } from './utils'
 
 export default async function reviseSubstitutionsAsync(opts: Options, pages: PageNode[]) {
   // Store array of all async promises to await at end.
@@ -10,19 +11,14 @@ export default async function reviseSubstitutionsAsync(opts: Options, pages: Pag
 
   // Iterate through the provided page nodes.
   for (let page of pages) {
-    let curFrameNumber = 0
-    const frames = page.findChildren((n) => DOCUMENT_TYPES.includes(n.type))
+    const frames = getDocumentStructure(opts, page)
 
     // Iterate through the frames in each page.
     for (let frame of frames) {
-      let displayFrameNumber = curFrameNumber
-      if (!opts.frameNumbersReverse) {
-        displayFrameNumber = frames.length - 1 - curFrameNumber
-      }
-      displayFrameNumber += opts.frameNumbersStart
+      const frameNode = figma.getNodeById(frame.id) as FrameNode
 
       //Iterate through all text nodes in the frame.
-      for (let text of (frame as FrameNode).findAll((n) => n.type === 'TEXT')) {
+      for (let text of frameNode.findAll((n) => n.type === 'TEXT')) {
         // Check for frame name revision.
         if (opts.reviseFrameNames && text.name.includes(opts.frameNamesMark) && !(text as TextNode).hasMissingFont) {
           ;(text as TextNode).autoRename = false
@@ -68,7 +64,7 @@ export default async function reviseSubstitutionsAsync(opts: Options, pages: Pag
           promises.push(
             figma
               .loadFontAsync((text as TextNode).getRangeFontName(0, 1) as FontName)
-              .then(getPageNumberFunc(text as TextNode, displayFrameNumber + ''))
+              .then(getPageNumberFunc(text as TextNode, frame.number + ''))
           )
 
           // Check for update date revision.
@@ -85,7 +81,6 @@ export default async function reviseSubstitutionsAsync(opts: Options, pages: Pag
           )
         }
       }
-      curFrameNumber += 1
     }
   }
   await Promise.allSettled(promises)
