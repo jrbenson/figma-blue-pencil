@@ -6,11 +6,17 @@ export const DOCUMENT_TYPES = ['FRAME']
 export function getDocumentStructure(opts: Options, page: PageNode) {
   const doc: { name: string; number: Number; id: string; hidden: boolean }[] = []
 
-  let curFrameNumber = 0
-
   const frames = page.findChildren((n) => n.type === 'FRAME')
+  const indexed_frames = frames.filter(
+    (f) =>
+      (!opts.omitFullPrefix || !startsWith(f.name, opts.omitFullPrefix)) &&
+      (!opts.omitIndexPrefix || !startsWith(f.name, opts.omitIndexPrefix))
+  )
+  const index_length = indexed_frames.length
 
+  let curFrameNumber = 0
   for (let frame of frames) {
+    console.log(frame.name, curFrameNumber)
     let name = frame.name
     let hidden = false
 
@@ -20,7 +26,7 @@ export function getDocumentStructure(opts: Options, page: PageNode) {
       if (!opts.omitIndexPrefix || !startsWith(name, opts.omitIndexPrefix)) {
         displayFrameNumber = curFrameNumber
         if (!opts.frameNumbersReverse) {
-          displayFrameNumber = frames.length - 1 - curFrameNumber
+          displayFrameNumber = index_length - 1 - curFrameNumber
         }
         displayFrameNumber += opts.frameNumbersStart
         curFrameNumber += 1
