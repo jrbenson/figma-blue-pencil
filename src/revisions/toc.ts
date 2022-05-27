@@ -68,6 +68,7 @@ export default async function reviseTableOfContentsAsync(opts: Options, pages: P
 
       const orig_entry = frame.findChild((n) => n.type === 'FRAME') as FrameNode
       if (orig_entry) {
+        orig_entry.reactions = []
         const entries: FrameNode[] = []
         for (let i = 0; i < contents.main.length; i += 1) {
           const entry = orig_entry.clone()
@@ -97,25 +98,27 @@ export default async function reviseTableOfContentsAsync(opts: Options, pages: P
         for (let entry of entries) {
           frame.appendChild(entry)
         }
-        for (let i = 0; i < contents.main.length; i += 1) {
-          const entry = entries[i]
-          if (contents.main[i].id && root_frame.id !== contents.main[i].id) {
-            entry.reactions = [
-              {
-                action: {
-                  type: 'NODE',
-                  destinationId: contents.main[i].id,
-                  navigation: 'NAVIGATE',
-                  transition: null,
-                  preserveScrollPosition: false,
+        if (opts.tocIncludeLinks) {
+          for (let i = 0; i < contents.main.length; i += 1) {
+            const entry = entries[i]
+            if (contents.main[i].id && root_frame.id !== contents.main[i].id) {
+              entry.reactions = [
+                {
+                  action: {
+                    type: 'NODE',
+                    destinationId: contents.main[i].id,
+                    navigation: 'NAVIGATE',
+                    transition: null,
+                    preserveScrollPosition: false,
+                  },
+                  trigger: {
+                    type: 'ON_CLICK',
+                  },
                 },
-                trigger: {
-                  type: 'ON_CLICK',
-                },
-              },
-            ]
-          } else {
-            entry.reactions = []
+              ]
+            } else {
+              entry.reactions = []
+            }
           }
         }
 
@@ -149,7 +152,9 @@ export default async function reviseTableOfContentsAsync(opts: Options, pages: P
         // }
       }
     }
-    page.flowStartingPoints = []
+    if (opts.tocIncludeLinks) {
+      page.flowStartingPoints = []
+    }
   }
 
   await Promise.allSettled(promises)

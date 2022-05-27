@@ -23,6 +23,7 @@ export interface Options {
   tocTitleDelimiter: string
   tocIncludeSelf: boolean
   tocIncludePrevious: boolean
+  tocIncludeLinks: boolean
   searchDepth: number
   omitIndexPrefix: string
   omitFullPrefix: string
@@ -56,10 +57,11 @@ const OPTS_DEFAULT: Options = {
   tocTitleDelimiter: '-',
   tocIncludeSelf: false,
   tocIncludePrevious: true,
+  tocIncludeLinks: true,
   searchDepth: 1,
   omitIndexPrefix: '_',
   omitFullPrefix: '~',
-  activePageOnly: false,
+  activePageOnly: true,
   collapsed: false,
 }
 

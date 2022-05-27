@@ -21,7 +21,7 @@ export default async function reviseAsync(opts: Options) {
   await Promise.allSettled(revisePromises)
 
   // Clearing flow starts comes at the end to avoid reset issue
-  if (opts.reviseTableOfContents) {
+  if (opts.reviseTableOfContents && opts.tocIncludeLinks) {
     for (let page of pages) {
       if (page.findOne((n) => n.type === 'FRAME' && n.name.includes(opts.tocMark))) {
         page.flowStartingPoints = []
